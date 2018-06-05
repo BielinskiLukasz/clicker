@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="sample.game.Employee"
+          prefHeight="100.0" prefWidth="100.0">
+
+    <columnConstraints>
+        <ColumnConstraints
+                halignment="CENTER"
+                hgrow="ALWAYS"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints
+                valignment="CENTER"
+                vgrow="ALWAYS"/>
+    </rowConstraints>
+
+    <Button
+            fx:id="hireButton"
+            onAction="#hireEmployee"
+            prefHeight="80" prefWidth="80"
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="0"
+            text="Hire"/>
+
+    <Button
+            fx:id="employeeButton"
+            onAction="#showEmployeeInfo"
+            prefHeight="80" prefWidth="80"
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="0"
+            text="Employee"/>
+
+</GridPane>
