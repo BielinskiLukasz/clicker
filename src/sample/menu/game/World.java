@@ -17,17 +17,20 @@ public class World implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        addCity("One");
+        addCity("Two");
+        addCity("Three");
+        addCity("Four");
+        addCity("Five");
+    }
+
+    private void addCity(String cityName) {
         try {
             Tab tab = new Tab();
-            tab.setText("city 1");
+            tab.setText(cityName);
             tab.setClosable(false);
             listOfCities.getTabs().add(tab);
             tab.setContent(FXMLLoader.load(this.getClass().getResource("city.fxml")));
-
-            Tab tab2 = new Tab();
-            tab2.setText("city 2");
-            listOfCities.getTabs().add(tab2);
-            tab2.setContent(FXMLLoader.load(this.getClass().getResource("city.fxml")));
         } catch (IOException e) {
             e.printStackTrace();
         }

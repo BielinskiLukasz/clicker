@@ -7,7 +7,8 @@
         xmlns:fx="http://javafx.com/fxml/1"
         xmlns="http://javafx.com/javafx/8.0.141"
         fx:controller="sample.menu.game.World"
-        fx:id="listOfCities">
+        fx:id="listOfCities"
+        styleClass="world">
 
     <stylesheets>
         <URL value="@gameStyle.css"/>

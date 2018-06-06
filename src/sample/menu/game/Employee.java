@@ -14,6 +14,12 @@ public class Employee implements Initializable {
     @FXML
     private Button employeeButton;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        hireButton.setVisible(true);
+        employeeButton.setVisible(false);
+    }
+
     @FXML
     public void hireEmployee() {
         hireButton.setVisible(false);
@@ -23,11 +29,5 @@ public class Employee implements Initializable {
     @FXML
     public void showEmployeeInfo() {
         System.out.println("I'm working!!!");   //TODO only tests :)
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        hireButton.setVisible(true);
-        employeeButton.setVisible(false);
     }
 }

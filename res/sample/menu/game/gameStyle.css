@@ -1,17 +1,13 @@
-TabPane {
-    /*-fx-border-width: 3;*/
-    /*-fx-border-color: RED;*/
-}
-
-GridPane {
-    /*-fx-border-width: 2;*/
-    /*-fx-border-color: GREEN;*/
+.world {
+    -fx-font: 15px Tahoma;
+    -fx-fill: rgb(20, 20, 20);
+    -fx-stroke: black;
 }
 
 .city {
-    /*-fx-border-width: 4;*/
-    /*-fx-border-color: YELLOW;*/
+    -fx-font: 20px Tahoma;
     -fx-padding: 10;
+    -fx-background-color: LIGHTYELLOW;
 }
 
 .room {
@@ -19,15 +15,19 @@ GridPane {
     -fx-border-width: 1;
     -fx-border-color: BLACK;
     -fx-pref-height: 120;
+    -fx-font: 18px Tahoma;
+}
+
+.room Button {
+    /*-fx-background-color: LIGHTGREEN;*/
+}
+
+.employee {
+    -fx-font: 12px Tahoma;
 }
 
 GridPane Label {
     -fx-padding: 10;
-}
-
-Label {
-    /*-fx-border-width: 1;*/
-    /*-fx-border-color: BLUE;*/
 }
 
 VBox {

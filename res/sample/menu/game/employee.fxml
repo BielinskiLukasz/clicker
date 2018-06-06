@@ -5,7 +5,8 @@
 <GridPane
         xmlns:fx="http://javafx.com/fxml"
         xmlns="http://javafx.com/javafx"
-        prefHeight="100.0" prefWidth="100.0">
+        prefHeight="100.0" prefWidth="100.0"
+        styleClass="employee">
 
     <columnConstraints>
         <ColumnConstraints
