@@ -1,11 +1,11 @@
-package sample.menu.game;
+package sample.menu.game.view;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -40,14 +40,10 @@ public class City implements Initializable {
         worldIncome.setVisible(true);
         timer.setVisible(true);
         for (int i = 0; i < 5; i++) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Room.fxml"));
-            Room controller = new Room();
-            loader.setController(controller);
-
-            Pane pane;
             try {
-                pane = loader.load();
-                listOfRooms.getChildren().add(pane);
+                GridPane room = new GridPane();
+                room.add(FXMLLoader.load(this.getClass().getResource("room.fxml")), 0, 0);
+                listOfRooms.getChildren().add(room);
             } catch (IOException e) {
                 e.printStackTrace();
             }

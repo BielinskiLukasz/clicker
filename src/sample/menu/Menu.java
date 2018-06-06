@@ -20,11 +20,10 @@ public class Menu {
     public void startGame(ActionEvent actionEvent) {
 //        Parent root =FXMLLoader.load(getClass().getResource("menu/menu.fxml"));
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("game/world.fxml"));
-            Parent root1 = fxmlLoader.load();
+            Parent root = FXMLLoader.load(getClass().getResource("game/view/world.fxml"));
 
             Stage stage = new Stage();
-            Scene scene = new Scene(root1, 820, 700);
+            Scene scene = new Scene(root, 820, 700);
 
             stage.setResizable(false);
 

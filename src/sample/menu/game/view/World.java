@@ -1,4 +1,4 @@
-package sample.menu.game;
+package sample.menu.game.view;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,8 +29,8 @@ public class World implements Initializable {
             Tab tab = new Tab();
             tab.setText(cityName);
             tab.setClosable(false);
-            listOfCities.getTabs().add(tab);
             tab.setContent(FXMLLoader.load(this.getClass().getResource("city.fxml")));
+            listOfCities.getTabs().add(tab);
         } catch (IOException e) {
             e.printStackTrace();
         }

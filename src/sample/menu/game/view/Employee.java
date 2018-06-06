@@ -1,4 +1,4 @@
-package sample.menu.game;
+package sample.menu.game.view;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,6 +16,7 @@ public class Employee implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         hireButton.setVisible(true);
         employeeButton.setVisible(false);
     }
