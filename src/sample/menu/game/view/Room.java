@@ -5,8 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,9 +33,11 @@ public class Room implements Initializable {
         roomIncome.setVisible(true);
         for (int i = 0; i < 6; i++) {
             try {
-                GridPane employee = new GridPane();
-                employee.add(FXMLLoader.load(this.getClass().getResource("employee.fxml")), 0, 0);
-                listOfEmployees.getChildren().add(employee);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("employee.fxml"));
+                Employee employee = new Employee();
+                loader.setController(employee);
+                Pane pane = loader.load();
+                listOfEmployees.getChildren().add(pane);
             } catch (IOException e) {
                 e.printStackTrace();
             }

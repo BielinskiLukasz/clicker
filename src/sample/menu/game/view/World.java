@@ -47,10 +47,15 @@ public class World implements Initializable {
 
     private void addCity(String cityName, int cityLifeCostLvl) {
         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("city.fxml"));
+            City city = new City();
+            loader.setController(city);
+
             Tab tab = new Tab();
+            tab.setContent(loader.load());
             tab.setText(cityName);
             tab.setClosable(false);
-            tab.setContent(FXMLLoader.load(this.getClass().getResource("city.fxml")));
+
             listOfCities.getTabs().add(tab);
         } catch (IOException e) {
             e.printStackTrace();

@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -43,9 +43,11 @@ public class City implements Initializable {
         timer.setVisible(true);
         for (int i = 0; i < 5; i++) {
             try {
-                GridPane room = new GridPane();
-                room.add(FXMLLoader.load(this.getClass().getResource("room.fxml")), 0, 0);
-                listOfRooms.getChildren().add(room);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("room.fxml"));
+                Room room = new Room();
+                loader.setController(room);
+                Pane pane = loader.load();
+                listOfRooms.getChildren().add(pane);
             } catch (IOException e) {
                 e.printStackTrace();
             }

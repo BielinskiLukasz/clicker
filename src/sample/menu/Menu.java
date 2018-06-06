@@ -18,7 +18,6 @@ public class Menu {
 
     @FXML
     public void startGame(ActionEvent actionEvent) {
-//        Parent root =FXMLLoader.load(getClass().getResource("menu/menu.fxml"));
         try {
             Parent root = FXMLLoader.load(getClass().getResource("game/view/world.fxml"));
 
