@@ -3,6 +3,7 @@ package sample.menu.game.view;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import sample.menu.game.model.EmployeeModel;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,6 +14,14 @@ public class Employee implements Initializable {
     private Button hireButton;
     @FXML
     private Button employeeButton;
+
+    private Room room;
+    private EmployeeModel employeeModel;
+
+    Employee(Room room, int empNo) {
+        this.room = room;
+        employeeModel = new EmployeeModel(empNo);
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

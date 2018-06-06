@@ -12,7 +12,7 @@
     <HBox
             GridPane.columnIndex="0"
             GridPane.rowIndex="0"
-            fx:id="listOfEmployees"/>
+            fx:id="employeesViewList"/>
 
     <Label
             fx:id="roomIncome"

@@ -7,9 +7,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import sample.menu.game.model.RoomModel;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class Room implements Initializable {
@@ -17,9 +20,19 @@ public class Room implements Initializable {
     @FXML
     private Label roomIncome;
     @FXML
-    private HBox listOfEmployees;
+    private HBox employeesViewList;
     @FXML
     private Button buyButton;
+
+    private City city;
+    private RoomModel roomModel;
+    private List<Employee> employeeList;
+
+    Room(City city, int floor) {
+        this.city = city;
+        roomModel = new RoomModel(floor);
+        employeeList = new ArrayList<>();
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -34,10 +47,13 @@ public class Room implements Initializable {
         for (int i = 0; i < 6; i++) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("employee.fxml"));
-                Employee employee = new Employee();
+                Employee employee = new Employee(this, i);
                 loader.setController(employee);
                 Pane pane = loader.load();
-                listOfEmployees.getChildren().add(pane);
+
+                employeesViewList.getChildren().add(pane);
+
+                employeeList.add(employee);
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -5,9 +5,9 @@ public class EmployeeModel {
     private double employeeIncomePerSec;
     private int employeeHireCost;
 
-    public EmployeeModel(int employeeHireCost) {
+    public EmployeeModel(int empNo) {
         employeeIncomePerSec = 0;
-        this.employeeHireCost = employeeHireCost;
+        employeeHireCost = empNo > 3 ? 2000 : empNo * 1000;
     }
 
 }

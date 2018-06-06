@@ -38,7 +38,7 @@
             GridPane.columnIndex="0"
             GridPane.rowIndex="2"
             GridPane.columnSpan="2"
-            fx:id="listOfRooms"/>
+            fx:id="roomsViewList"/>
 
     <Button
             fx:id="visitButton"
