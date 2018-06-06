@@ -10,9 +10,11 @@ public class Employee {
     @FXML
     private Button employeeButton;
 
+    @FXML
     public void hireEmployee() {
     }
 
+    @FXML
     public void showEmployeeInfo() {
     }
 }

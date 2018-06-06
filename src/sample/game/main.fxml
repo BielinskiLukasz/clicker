@@ -8,7 +8,9 @@
         maxHeight="275.0" maxWidth="450.0"
         minHeight="275.0" minWidth="450.0"
         prefHeight="275.0" prefWidth="450.0"
-        xmlns="http://javafx.com/javafx/8.0.141">
+        xmlns:fx="http://javafx.com/fxml/1"
+        xmlns="http://javafx.com/javafx/8.0.141"
+        fx:controller="sample.game.Main">
 
     <tabs>
         <Tab text="Untitled Tab 1">
