@@ -1,0 +1,39 @@
+TabPane {
+    /*-fx-border-width: 3;*/
+    /*-fx-border-color: RED;*/
+}
+
+GridPane {
+    /*-fx-border-width: 2;*/
+    /*-fx-border-color: GREEN;*/
+}
+
+.city {
+    /*-fx-border-width: 4;*/
+    /*-fx-border-color: YELLOW;*/
+    -fx-padding: 10;
+}
+
+.room {
+    -fx-background-color: WHITE;
+    -fx-border-width: 1;
+    -fx-border-color: BLACK;
+    -fx-pref-height: 120;
+}
+
+GridPane Label {
+    -fx-padding: 10;
+}
+
+Label {
+    /*-fx-border-width: 1;*/
+    /*-fx-border-color: BLUE;*/
+}
+
+VBox {
+    -fx-padding: 10;
+}
+
+HBox {
+    -fx-padding: 5;
+}

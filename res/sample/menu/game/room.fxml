@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.*?>
 <GridPane
         xmlns:fx="http://javafx.com/fxml/1"
         xmlns="http://javafx.com/javafx/8.0.121"
-        prefHeight="100.0" prefWidth="800.0">
+        prefHeight="100.0" prefWidth="800.0"
+        styleClass="room">
 
-    <HBox fx:id="listOfEmployees"/>
+    <HBox
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="0"
+            fx:id="listOfEmployees"/>
 
     <Label
             fx:id="roomIncome"
-            GridPane.columnIndex="0"
-            GridPane.rowIndex="6"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="0"
             alignment="CENTER"
             prefHeight="100.0" prefWidth="180.0"
             text="/income/ $/s"/>

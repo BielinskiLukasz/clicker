@@ -24,7 +24,7 @@ public class Menu {
             Parent root1 = fxmlLoader.load();
 
             Stage stage = new Stage();
-            Scene scene = new Scene(root1, 800, 700);
+            Scene scene = new Scene(root1, 820, 700);
 
             stage.setResizable(false);
 
