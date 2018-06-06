@@ -5,22 +5,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import java.net.URL?>
 <TabPane
-        maxHeight="275.0" maxWidth="450.0"
-        minHeight="275.0" minWidth="450.0"
-        prefHeight="275.0" prefWidth="450.0"
+        prefHeight="700.0" prefWidth="800.0"
         xmlns:fx="http://javafx.com/fxml/1"
         xmlns="http://javafx.com/javafx/8.0.141"
-        fx:controller="sample.menu.game.MainController">
+        fx:controller="sample.menu.game.World">
 
     <tabs>
-        <Tab text="Untitled Tab 1">
-            <content>
-                <AnchorPane
-                        minHeight="0.0" minWidth="0.0"
-                        prefHeight="180.0" prefWidth="200.0"/>
-            </content>
-        </Tab>
-        <Tab text="Untitled Tab 2">
+        <Tab
+                fx:id="whatIShouldDo"
+                text="Untitled Tab 1">
             <content>
                 <AnchorPane
                         minHeight="0.0" minWidth="0.0"

@@ -2,19 +2,21 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
 <GridPane
         xmlns:fx="http://javafx.com/fxml/1"
         xmlns="http://javafx.com/javafx/8.0.121"
         fx:controller="sample.menu.game.Room"
         prefHeight="100.0" prefWidth="800.0">
 
+    <HBox fx:id="listOfEmployees"/>
+
     <Label
-            fx:id="income"
+            fx:id="roomIncome"
             GridPane.columnIndex="0"
             GridPane.rowIndex="6"
-            text="type login"/>
-
-    <VBox fx:id="listOfEmployees"/>
+            alignment="CENTER"
+            prefHeight="100.0" prefWidth="180.0"
+            text="/income/ $/s"/>
 
 </GridPane>

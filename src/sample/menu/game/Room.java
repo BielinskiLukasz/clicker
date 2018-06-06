@@ -2,13 +2,13 @@ package sample.menu.game;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 
 public class Room {
 
     @FXML
-    private Label income;
+    private Label roomIncome;
     @FXML
-    private VBox listOfEmployees;
+    private HBox listOfEmployees;
 
 }
