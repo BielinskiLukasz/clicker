@@ -37,6 +37,8 @@ public class Room implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         buyButton.setVisible(true);
+        buyButton.setText("Cost of purchase: " + roomModel.getRoomBuyCost() + " $");
+
         roomIncome.setVisible(false);
     }
 

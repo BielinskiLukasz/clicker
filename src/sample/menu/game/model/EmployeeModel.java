@@ -7,7 +7,10 @@ public class EmployeeModel {
 
     public EmployeeModel(int empNo) {
         employeeIncomePerSec = 0;
-        employeeHireCost = empNo > 3 ? 2000 : empNo * 1000;
+        employeeHireCost = empNo < 3 ? 2000 : empNo * 1000;
     }
 
+    public int getEmployeeHireCost() {
+        return employeeHireCost;
+    }
 }

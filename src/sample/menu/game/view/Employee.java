@@ -26,6 +26,8 @@ public class Employee implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         hireButton.setVisible(true);
+        hireButton.setText("employment\ncost:\n" + employeeModel.getEmployeeHireCost() + " $");
+
         employeeButton.setVisible(false);
     }
 

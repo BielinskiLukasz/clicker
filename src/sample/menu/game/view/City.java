@@ -41,6 +41,7 @@ public class City implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         visitButton.setVisible(true);
+        visitButton.setText("Cost of the visit: " + cityModel.getViewCosts() + " $");
 
         cityIncome.setVisible(false);
         worldIncome.setVisible(false);

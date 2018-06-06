@@ -12,4 +12,7 @@ public class CityModel {
         viewCosts = cityLifeCostLvl * 1000;
     }
 
+    public int getViewCosts() {
+        return viewCosts;
+    }
 }

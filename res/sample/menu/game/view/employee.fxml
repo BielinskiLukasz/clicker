@@ -25,7 +25,9 @@
             prefHeight="80" prefWidth="80"
             GridPane.columnIndex="0"
             GridPane.rowIndex="0"
-            text="Hire"/>
+            textAlignment="CENTER"
+            text="Hire"
+            styleClass="employment"/>
 
     <Button
             fx:id="employeeButton"
@@ -33,6 +35,7 @@
             prefHeight="80" prefWidth="80"
             GridPane.columnIndex="0"
             GridPane.rowIndex="0"
+            textAlignment="CENTER"
             text="Employee"/>
 
 </GridPane>

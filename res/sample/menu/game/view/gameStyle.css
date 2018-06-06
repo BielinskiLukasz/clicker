@@ -37,3 +37,7 @@ VBox {
 HBox {
     -fx-padding: 5;
 }
+
+.employment {
+    -fx-font: 10px Tahoma;
+}

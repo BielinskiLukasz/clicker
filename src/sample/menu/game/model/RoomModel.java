@@ -7,7 +7,10 @@ public class RoomModel {
 
     public RoomModel(int floor) {
         roomIncomePerSec = 0;
-        this.roomBuyCost = 10000 * (1 + 2 * floor);
+        this.roomBuyCost = 1000 * (1 + 2 * floor);
     }
 
+    public int getRoomBuyCost() {
+        return roomBuyCost;
+    }
 }
