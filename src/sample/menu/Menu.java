@@ -17,20 +17,24 @@ public class Menu {
     private Button startButton;
 
     @FXML
-    public void startGame(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.
-                load(getClass().
-                        getResource("game/main.fxml"));
+    public void startGame(ActionEvent actionEvent) {
+//        Parent root =FXMLLoader.load(getClass().getResource("menu/menu.fxml"));
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("game/main.fxml"));
+            Parent root1 = fxmlLoader.load();
 
-        Stage stage = new Stage();
-        Scene scene = new Scene(root, 450, 275);
+            Stage stage = new Stage();
+            Scene scene = new Scene(root1, 450, 275);
 
-        stage.setResizable(false);
+            stage.setResizable(false);
 
-        stage.setTitle("GAME");
-        stage.setScene(scene);
-        stage.show();
+            stage.setTitle("GAME");
+            stage.setScene(scene);
+            stage.show();
 
-        ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+            ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

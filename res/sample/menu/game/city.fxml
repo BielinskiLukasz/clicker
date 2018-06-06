@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.game.City"
+            fx:controller="sample.menu.game.City"
             prefHeight="400.0" prefWidth="600.0">
 
 </AnchorPane>

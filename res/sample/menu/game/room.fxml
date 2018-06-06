@@ -6,7 +6,7 @@
 <GridPane
         xmlns:fx="http://javafx.com/fxml/1"
         xmlns="http://javafx.com/javafx/8.0.121"
-        fx:controller="sample.game.Room"
+        fx:controller="sample.menu.game.Room"
         prefHeight="100.0" prefWidth="800.0">
 
     <Label

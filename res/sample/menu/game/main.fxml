@@ -10,7 +10,7 @@
         prefHeight="275.0" prefWidth="450.0"
         xmlns:fx="http://javafx.com/fxml/1"
         xmlns="http://javafx.com/javafx/8.0.141"
-        fx:controller="sample.game.Main">
+        fx:controller="sample.menu.game.MainController">
 
     <tabs>
         <Tab text="Untitled Tab 1">
