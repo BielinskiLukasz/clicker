@@ -15,10 +15,12 @@ public class Employee implements Initializable {
     @FXML
     private Button employeeButton;
 
+    private World world;
     private Room room;
     private EmployeeModel employeeModel;
 
-    Employee(Room room, int empNo) {
+    Employee(World world, Room room, int empNo) {
+        this.world = world;
         this.room = room;
         employeeModel = new EmployeeModel(empNo);
     }
@@ -33,8 +35,13 @@ public class Employee implements Initializable {
 
     @FXML
     public void hireEmployee() {
-        hireButton.setVisible(false);
-        employeeButton.setVisible(true);
+        if (world.outFounds() >= employeeModel.getEmployeeHireCost()) {
+            world.charge(employeeModel.getEmployeeHireCost());
+            hireButton.setVisible(false);
+            employeeButton.setVisible(true);
+        } else {
+            System.out.println("EMPLOYEE - YOU NEED MORE MONEY"); //TODO UPGRADE
+        }
     }
 
     @FXML

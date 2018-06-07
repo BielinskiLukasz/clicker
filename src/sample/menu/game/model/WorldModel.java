@@ -24,6 +24,10 @@ public class WorldModel {
         return worldIncomePerSec;
     }
 
+    public void setFounds(double founds) {
+        this.founds = founds;
+    }
+
     public void actualizeTime() {
         timeSec++;
     }

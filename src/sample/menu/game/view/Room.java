@@ -24,11 +24,13 @@ public class Room implements Initializable {
     @FXML
     private Button buyButton;
 
+    private World world;
     private City city;
     private RoomModel roomModel;
     private List<Employee> employeeList;
 
-    Room(City city, int floor) {
+    Room(World world, City city, int floor) {
+        this.world = world;
         this.city = city;
         roomModel = new RoomModel(floor, city.getCityModel().getCityLifeCostLvl());
         employeeList = new ArrayList<>();
@@ -46,21 +48,28 @@ public class Room implements Initializable {
 
     @FXML
     public void buyRoom() {
-        buyButton.setVisible(false);
-        roomIncome.setVisible(true);
-        for (int i = 0; i < 6; i++) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("employee.fxml"));
-                Employee employee = new Employee(this, i);
-                loader.setController(employee);
-                Pane pane = loader.load();
+        if (world.outFounds() >= roomModel.getRoomBuyCost()) {
+            world.charge(roomModel.getRoomBuyCost());
 
-                employeesViewList.getChildren().add(pane);
+            buyButton.setVisible(false);
+            roomIncome.setVisible(true);
 
-                employeeList.add(employee);
-            } catch (IOException e) {
-                e.printStackTrace();
+            for (int i = 0; i < 6; i++) {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("employee.fxml"));
+                    Employee employee = new Employee(world, this, i);
+                    loader.setController(employee);
+                    Pane pane = loader.load();
+
+                    employeesViewList.getChildren().add(pane);
+
+                    employeeList.add(employee);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+        } else {
+            System.out.println("ROOM - YOU NEED MORE MONEY"); //TODO UPGRADE
         }
     }
 }

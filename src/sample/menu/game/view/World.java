@@ -97,4 +97,12 @@ public class World implements Initializable {
     public double getWorldIncomePerSec() {
         return worldModel.getWorldIncomePerSec();
     }
+
+    public double outFounds() {
+        return worldModel.getFounds();
+    }
+
+    public void charge(int charge) {
+        worldModel.setFounds(worldModel.getFounds() - charge);
+    }
 }

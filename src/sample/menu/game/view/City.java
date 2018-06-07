@@ -60,23 +60,28 @@ public class City implements Initializable {
 
     @FXML
     public void visitCity() {
-        visitButton.setVisible(false);
+        if (world.outFounds() >= cityModel.getViewCosts()) {
+            world.charge(cityModel.getViewCosts());
 
-        head.setVisible(true);
+            visitButton.setVisible(false);
+            head.setVisible(true);
 
-        for (int i = 0; i < 5; i++) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("room.fxml"));
-                Room room = new Room(this, 5 - i);
-                loader.setController(room);
-                Pane pane = loader.load();
+            for (int i = 0; i < 5; i++) {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("room.fxml"));
+                    Room room = new Room(world, this, 5 - i);
+                    loader.setController(room);
+                    Pane pane = loader.load();
 
-                roomsViewList.getChildren().add(pane);
+                    roomsViewList.getChildren().add(pane);
 
-                roomList.add(room);
-            } catch (IOException e) {
-                e.printStackTrace();
+                    roomList.add(room);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+        } else {
+            System.out.println("CITY - YOU NEED MORE MONEY"); //TODO UPGRADE
         }
     }
 }
