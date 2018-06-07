@@ -29,10 +29,10 @@ public class Room implements Initializable {
     private RoomModel roomModel;
     private List<Employee> employeeList;
 
-    Room(World world, City city, int floor) {
+    Room(World world, City city, int floor, int cityLifeCostLvl) {
         this.world = world;
         this.city = city;
-        roomModel = new RoomModel(floor, city.getCityModel().getCityLifeCostLvl());
+        roomModel = new RoomModel(floor, cityLifeCostLvl);
         employeeList = new ArrayList<>();
     }
 
@@ -57,7 +57,7 @@ public class Room implements Initializable {
             for (int i = 0; i < 6; i++) {
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("employee.fxml"));
-                    Employee employee = new Employee(world, this, i);
+                    Employee employee = new Employee(world, this, i, city.getCityLifeCostLvl());
                     loader.setController(employee);
                     Pane pane = loader.load();
 
@@ -73,9 +73,13 @@ public class Room implements Initializable {
         }
     }
 
-    public void actualizeIncome(double employeeIncomePerSec) {
+    void actualizeIncome(double employeeIncomePerSec) {
         roomModel.actualizeIncome(employeeIncomePerSec);
         roomIncome.setText("" + roomModel.getRoomIncomePerSec() + " $/s");
         city.actualizeIncome(employeeIncomePerSec);
+    }
+
+    int getFloor() {
+        return roomModel.getFloor();
     }
 }

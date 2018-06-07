@@ -43,10 +43,6 @@ public class City implements Initializable {
         roomList = new ArrayList<>();
     }
 
-    public CityModel getCityModel() {
-        return cityModel;
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         visitButton.setVisible(true);
@@ -65,11 +61,12 @@ public class City implements Initializable {
 
             visitButton.setVisible(false);
             head.setVisible(true);
+            worldIncome.setText("World income:\t" + world.getWorldIncomePerSec() + " $/s");
 
             for (int i = 0; i < 5; i++) {
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("room.fxml"));
-                    Room room = new Room(world, this, 5 - i);
+                    Room room = new Room(world, this, 5 - i, cityModel.getCityLifeCostLvl());
                     loader.setController(room);
                     Pane pane = loader.load();
 
@@ -85,10 +82,17 @@ public class City implements Initializable {
         }
     }
 
-    public void actualizeIncome(double employeeIncomePerSec) {
+    void actualizeIncome(double employeeIncomePerSec) {
         cityModel.actualizeIncome(employeeIncomePerSec);
         cityIncome.setText("City income:\t" + cityModel.getCityIncomePerSec() + " $/s");
         world.actualizeIncome(employeeIncomePerSec);
+    }
+
+    int getCityLifeCostLvl() {
+        return cityModel.getCityLifeCostLvl();
+    }
+
+    void actualizeWorldIncomeView() {
         worldIncome.setText("World income:\t" + world.getWorldIncomePerSec() + " $/s");
     }
 }

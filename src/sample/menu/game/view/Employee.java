@@ -19,10 +19,10 @@ public class Employee implements Initializable {
     private Room room;
     private EmployeeModel employeeModel;
 
-    Employee(World world, Room room, int empNo) {
+    Employee(World world, Room room, int empNo, int cityLifeCostLvl) {
         this.world = world;
         this.room = room;
-        employeeModel = new EmployeeModel(empNo);
+        employeeModel = new EmployeeModel(empNo, room.getFloor(), cityLifeCostLvl);
     }
 
     @Override

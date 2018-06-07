@@ -93,19 +93,22 @@ public class World implements Initializable {
         }
     }
 
-    public double getWorldIncomePerSec() {
+    double getWorldIncomePerSec() {
         return worldModel.getWorldIncomePerSec();
     }
 
-    public double outFounds() {
+    double outFounds() {
         return worldModel.getFounds();
     }
 
-    public void charge(int charge) {
+    void charge(int charge) {
         worldModel.setFounds(worldModel.getFounds() - charge);
     }
 
-    public void actualizeIncome(double employeeIncomePerSec) {
+    void actualizeIncome(double employeeIncomePerSec) {
         worldModel.actualizeIncome(employeeIncomePerSec);
+        for (City city : cityList) {
+            city.actualizeWorldIncomeView();
+        }
     }
 }

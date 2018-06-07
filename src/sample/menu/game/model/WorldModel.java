@@ -16,10 +16,6 @@ public class WorldModel {
         return founds;
     }
 
-    public int getTimeSec() {
-        return timeSec;
-    }
-
     public double getWorldIncomePerSec() {
         return worldIncomePerSec;
     }
