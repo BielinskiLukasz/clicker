@@ -19,13 +19,13 @@ public class World implements Initializable {
     @FXML
     private TabPane citiesViewList;
 
-    private Task progressTask;
+    private Task timeMeasurement;
     private WorldModel worldModel;
     private List<City> cityList;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        worldModel = new WorldModel();
+        worldModel = new WorldModel(10000);
         cityList = new ArrayList<>();
 
         addCity("Chernobyl", 1);
@@ -34,21 +34,39 @@ public class World implements Initializable {
         addCity("London", 8);
         addCity("New York", 16);
 
-        progressTask = new Task<Integer>() {
+        timeMeasurement = new Task<Integer>() {
             @Override
             protected Integer call() throws Exception {
                 int value = 0;
-                while (!isCancelled()) {
+//                String time;
+                while (true) {
                     value++;
+                    System.out.println(value); //TODO TEST
+                    worldModel.actualizeTime();
+                    worldModel.actualizeFounds();
+//                    time = ("day " + value / (24 * 60 * 60) + " - "
+//                            + (value % (24 * 60 * 60)) / (60 * 60) + ":"
+//                            + (value % (24 * 60 * 60)) % (60 * 60) / 60 + ":"
+//                            + (value % (24 * 60 * 60)) % (60 * 60) % 60);
+                    updateTitle("Founds: " + worldModel.getFounds() + " $");
                     updateMessage("day " + value / (24 * 60 * 60) + " - "
                             + (value % (24 * 60 * 60)) / (60 * 60) + ":"
                             + (value % (24 * 60 * 60)) % (60 * 60) / 60 + ":"
                             + (value % (24 * 60 * 60)) % (60 * 60) % 60);
                     Thread.sleep(1000); //one second
                 }
-                return value;
+//                return value;
             }
         };
+
+        for (City city : cityList) {
+            city.founds.textProperty().bind(timeMeasurement.titleProperty());
+            city.timer.textProperty().bind(timeMeasurement.messageProperty());
+        }
+
+        Thread thread = new Thread(timeMeasurement);
+        thread.setDaemon(true);
+        thread.start();
     }
 
     private void addCity(String cityName, int cityLifeCostLvl) {

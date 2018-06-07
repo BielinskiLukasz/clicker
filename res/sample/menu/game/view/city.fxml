@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <GridPane
         xmlns:fx="http://javafx.com/fxml/1"
@@ -9,30 +8,45 @@
         prefHeight="700.0" prefWidth="800.0"
         styleClass="city">
 
-    <Label
-            fx:id="worldIncome"
-            GridPane.columnIndex="0"
-            GridPane.rowIndex="0"
-            alignment="BOTTOM_CENTER"
-            prefHeight="50.0" prefWidth="400.0"
-            text="World income: /income/ $/s"/>
+    <GridPane
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:id="head"
+            xmlns="http://javafx.com/javafx/8.0.121"
+            prefHeight="200.0" prefWidth="800.0">
 
-    <Label
-            fx:id="cityIncome"
-            GridPane.columnIndex="0"
-            GridPane.rowIndex="1"
-            alignment="TOP_CENTER"
-            prefHeight="50.0" prefWidth="400.0"
-            text="City income: /income/ $/s"/>
+        <Label
+                fx:id="timer"
+                GridPane.columnIndex="0"
+                GridPane.rowIndex="0"
+                alignment="CENTER"
+                prefHeight="50.0" prefWidth="400.0"
+                text="day /time day/ - /hours/:/mins/:/secs/"/>
 
-    <Label
-            fx:id="timer"
-            GridPane.columnIndex="1"
-            GridPane.rowIndex="0"
-            GridPane.rowSpan="2"
-            alignment="CENTER"
-            prefHeight="100.0" prefWidth="400.0"
-            text="day /time day/ - /hours/:/mins/:/secs/"/>
+        <Label
+                fx:id="founds"
+                GridPane.columnIndex="1"
+                GridPane.rowIndex="0"
+                alignment="CENTER"
+                prefHeight="50.0" prefWidth="400.0"
+                text="Founds: /income/ $/s"/>
+
+        <Label
+                fx:id="cityIncome"
+                GridPane.columnIndex="0"
+                GridPane.rowIndex="1"
+                alignment="CENTER"
+                prefHeight="50.0" prefWidth="400.0"
+                text="City income: /income/ $/s"/>
+
+        <Label
+                fx:id="worldIncome"
+                GridPane.columnIndex="1"
+                GridPane.rowIndex="1"
+                alignment="CENTER"
+                prefHeight="50.0" prefWidth="400.0"
+                text="World income: /income/ $/s"/>
+
+    </GridPane>
 
     <VBox
             GridPane.columnIndex="0"

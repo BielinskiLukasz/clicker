@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import sample.menu.game.model.CityModel;
@@ -20,9 +21,13 @@ public class City implements Initializable {
     @FXML
     private Label worldIncome;
     @FXML
+    Label timer;
+    @FXML
+    Label founds;
+    @FXML
     private Label cityIncome;
     @FXML
-    private Label timer;
+    private GridPane head;
     @FXML
     private VBox roomsViewList;
     @FXML
@@ -38,23 +43,24 @@ public class City implements Initializable {
         roomList = new ArrayList<>();
     }
 
+    public CityModel getCityModel() {
+        return cityModel;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         visitButton.setVisible(true);
         visitButton.setText("Cost of the visit: " + cityModel.getViewCosts() + " $");
 
-        cityIncome.setVisible(false);
-        worldIncome.setVisible(false);
-        timer.setVisible(false);
+        head.setVisible(false);
     }
 
     @FXML
     public void visitCity() {
         visitButton.setVisible(false);
 
-        cityIncome.setVisible(true);
-        worldIncome.setVisible(true);
-        timer.setVisible(true);
+        head.setVisible(true);
+
         for (int i = 0; i < 5; i++) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("room.fxml"));

@@ -30,7 +30,7 @@ public class Room implements Initializable {
 
     Room(City city, int floor) {
         this.city = city;
-        roomModel = new RoomModel(floor);
+        roomModel = new RoomModel(floor, city.getCityModel().getCityLifeCostLvl());
         employeeList = new ArrayList<>();
     }
 

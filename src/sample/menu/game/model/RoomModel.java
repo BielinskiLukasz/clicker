@@ -5,9 +5,9 @@ public class RoomModel {
     private double roomIncomePerSec;
     private int roomBuyCost;
 
-    public RoomModel(int floor) {
+    public RoomModel(int floor, int cityLifeCostLvl) {
         roomIncomePerSec = 0;
-        this.roomBuyCost = 1000 * (1 + 2 * floor);
+        this.roomBuyCost = 1000 * (1 + 2 * floor) * (2 + cityLifeCostLvl * cityLifeCostLvl / 2);
     }
 
     public int getRoomBuyCost() {
