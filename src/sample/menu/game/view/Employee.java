@@ -38,7 +38,11 @@ public class Employee implements Initializable {
         if (world.outFounds() >= employeeModel.getEmployeeHireCost()) {
             world.charge(employeeModel.getEmployeeHireCost());
             hireButton.setVisible(false);
+
             employeeButton.setVisible(true);
+            employeeButton.setText("Employee\n+" + employeeModel.getEmployeeIncomePerSec());
+
+            room.actualizeIncome(employeeModel.getEmployeeIncomePerSec());
         } else {
             System.out.println("EMPLOYEE - YOU NEED MORE MONEY"); //TODO UPGRADE
         }

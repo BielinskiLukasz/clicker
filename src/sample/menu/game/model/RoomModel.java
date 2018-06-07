@@ -17,4 +17,8 @@ public class RoomModel {
     public double getRoomIncomePerSec() {
         return roomIncomePerSec;
     }
+
+    public void actualizeIncome(double employeeIncomePerSec) {
+        roomIncomePerSec += employeeIncomePerSec;
+    }
 }

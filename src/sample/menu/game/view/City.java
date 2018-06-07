@@ -84,4 +84,11 @@ public class City implements Initializable {
             System.out.println("CITY - YOU NEED MORE MONEY"); //TODO UPGRADE
         }
     }
+
+    public void actualizeIncome(double employeeIncomePerSec) {
+        cityModel.actualizeIncome(employeeIncomePerSec);
+        cityIncome.setText("City income:\t" + cityModel.getCityIncomePerSec() + " $/s");
+        world.actualizeIncome(employeeIncomePerSec);
+        worldIncome.setText("World income:\t" + world.getWorldIncomePerSec() + " $/s");
+    }
 }

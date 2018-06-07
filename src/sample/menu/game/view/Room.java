@@ -72,4 +72,10 @@ public class Room implements Initializable {
             System.out.println("ROOM - YOU NEED MORE MONEY"); //TODO UPGRADE
         }
     }
+
+    public void actualizeIncome(double employeeIncomePerSec) {
+        roomModel.actualizeIncome(employeeIncomePerSec);
+        roomIncome.setText("" + roomModel.getRoomIncomePerSec() + " $/s");
+        city.actualizeIncome(employeeIncomePerSec);
+    }
 }

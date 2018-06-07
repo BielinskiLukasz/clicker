@@ -41,7 +41,6 @@ public class World implements Initializable {
 //                String time;
                 while (true) {
                     value++;
-                    System.out.println(value); //TODO TEST
                     worldModel.actualizeTime();
                     worldModel.actualizeFounds();
                     updateTitle("Founds:\t" + worldModel.getFounds() + " $");
@@ -104,5 +103,9 @@ public class World implements Initializable {
 
     public void charge(int charge) {
         worldModel.setFounds(worldModel.getFounds() - charge);
+    }
+
+    public void actualizeIncome(double employeeIncomePerSec) {
+        worldModel.actualizeIncome(employeeIncomePerSec);
     }
 }

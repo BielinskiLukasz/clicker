@@ -8,9 +8,15 @@ public class EmployeeModel {
     public EmployeeModel(int empNo) {
         employeeIncomePerSec = 0;
         employeeHireCost = empNo < 3 ? 2000 : empNo * 1000;
+        employeeIncomePerSec = Math.round(((double)
+                (employeeHireCost / 100 / 4 * 3 + (int) (Math.random() * employeeHireCost / 50))) * 100) / 100;
     }
 
     public int getEmployeeHireCost() {
         return employeeHireCost;
+    }
+
+    public double getEmployeeIncomePerSec() {
+        return employeeIncomePerSec;
     }
 }

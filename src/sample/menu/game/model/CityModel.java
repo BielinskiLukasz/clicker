@@ -25,4 +25,8 @@ public class CityModel {
     public double getCityIncomePerSec() {
         return cityIncomePerSec;
     }
+
+    public void actualizeIncome(double employeeIncomePerSec) {
+        cityIncomePerSec += employeeIncomePerSec;
+    }
 }
