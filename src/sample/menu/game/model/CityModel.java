@@ -21,4 +21,8 @@ public class CityModel {
     public int getCityLifeCostLvl() {
         return cityLifeCostLvl;
     }
+
+    public double getCityIncomePerSec() {
+        return cityIncomePerSec;
+    }
 }

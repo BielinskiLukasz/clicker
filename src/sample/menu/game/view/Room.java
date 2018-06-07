@@ -40,6 +40,8 @@ public class Room implements Initializable {
         buyButton.setText("Cost of purchase: " + roomModel.getRoomBuyCost() + " $");
 
         roomIncome.setVisible(false);
+
+        roomIncome.setText("" + roomModel.getRoomIncomePerSec() + " $/s");
     }
 
     @FXML

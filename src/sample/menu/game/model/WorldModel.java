@@ -8,7 +8,7 @@ public class WorldModel {
 
     public WorldModel(int startFounds) {
         founds = startFounds;
-        worldIncomePerSec = 0;
+        worldIncomePerSec = 1;
         timeSec = 0;
     }
 
@@ -18,6 +18,10 @@ public class WorldModel {
 
     public int getTimeSec() {
         return timeSec;
+    }
+
+    public double getWorldIncomePerSec() {
+        return worldIncomePerSec;
     }
 
     public void actualizeTime() {

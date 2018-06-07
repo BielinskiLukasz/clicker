@@ -13,4 +13,8 @@ public class RoomModel {
     public int getRoomBuyCost() {
         return roomBuyCost;
     }
+
+    public double getRoomIncomePerSec() {
+        return roomIncomePerSec;
+    }
 }

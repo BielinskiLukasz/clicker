@@ -53,6 +53,9 @@ public class City implements Initializable {
         visitButton.setText("Cost of the visit: " + cityModel.getViewCosts() + " $");
 
         head.setVisible(false);
+
+        cityIncome.setText("City income:\t" + cityModel.getCityIncomePerSec() + " $/s");
+        worldIncome.setText("World income:\t" + world.getWorldIncomePerSec() + " $/s");
     }
 
     @FXML

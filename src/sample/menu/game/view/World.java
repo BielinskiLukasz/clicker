@@ -44,15 +44,8 @@ public class World implements Initializable {
                     System.out.println(value); //TODO TEST
                     worldModel.actualizeTime();
                     worldModel.actualizeFounds();
-//                    time = ("day " + value / (24 * 60 * 60) + " - "
-//                            + (value % (24 * 60 * 60)) / (60 * 60) + ":"
-//                            + (value % (24 * 60 * 60)) % (60 * 60) / 60 + ":"
-//                            + (value % (24 * 60 * 60)) % (60 * 60) % 60);
-                    updateTitle("Founds: " + worldModel.getFounds() + " $");
-                    updateMessage("day " + value / (24 * 60 * 60) + " - "
-                            + (value % (24 * 60 * 60)) / (60 * 60) + ":"
-                            + (value % (24 * 60 * 60)) % (60 * 60) / 60 + ":"
-                            + (value % (24 * 60 * 60)) % (60 * 60) % 60);
+                    updateTitle("Founds:\t" + worldModel.getFounds() + " $");
+                    updateMessage("day " + showTime(value));
                     Thread.sleep(1000); //one second
                 }
 //                return value;
@@ -67,6 +60,19 @@ public class World implements Initializable {
         Thread thread = new Thread(timeMeasurement);
         thread.setDaemon(true);
         thread.start();
+    }
+
+    private String showTime(int value) {
+        return (value / (24 * 60 * 60) > 0 ? value / (24 * 60 * 60) : 0)
+                + " - "
+                + ((value % (24 * 60 * 60)) / (60 * 60) >= 10
+                ? (value % (24 * 60 * 60)) / (60 * 60) : "0" + (value % (24 * 60 * 60)) / (60 * 60))
+                + ":"
+                + ((value % (24 * 60 * 60)) % (60 * 60) / 60 >= 10
+                ? (value % (24 * 60 * 60)) % (60 * 60) / 60 : "0" + (value % (24 * 60 * 60)) % (60 * 60) / 60)
+                + ":"
+                + ((value % (24 * 60 * 60)) % (60 * 60) % 60 >= 10
+                ? (value % (24 * 60 * 60)) % (60 * 60) % 60 : "0" + (value % (24 * 60 * 60)) % (60 * 60) % 60);
     }
 
     private void addCity(String cityName, int cityLifeCostLvl) {
@@ -86,5 +92,9 @@ public class World implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public double getWorldIncomePerSec() {
+        return worldModel.getWorldIncomePerSec();
     }
 }
