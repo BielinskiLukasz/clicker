@@ -77,6 +77,8 @@ public class City implements Initializable {
                     e.printStackTrace();
                 }
             }
+
+            roomList.get(roomList.size() - 1).setAvailable();
         } else {
             System.out.println("CITY - YOU NEED MORE MONEY"); //TODO UPGRADE
         }
@@ -94,5 +96,12 @@ public class City implements Initializable {
 
     void actualizeWorldIncomeView() {
         worldIncome.setText("World income:\t" + world.getWorldIncomePerSec() + " $/s");
+    }
+
+    void setNextRoomAvailable() {
+        if (roomList.size() >= cityModel.getVisableRooms()) {
+            roomList.get(roomList.size() - cityModel.getVisableRooms() - 1).setAvailable();
+            cityModel.setVisableRooms(cityModel.getVisableRooms() + 1);
+        }
     }
 }

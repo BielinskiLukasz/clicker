@@ -38,11 +38,10 @@ public class Room implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        buyButton.setVisible(true);
+        buyButton.setVisible(false);
         buyButton.setText("Cost of purchase: " + roomModel.getRoomBuyCost() + " $");
 
         roomIncome.setVisible(false);
-
         roomIncome.setText("" + roomModel.getRoomIncomePerSec() + " $/s");
     }
 
@@ -68,6 +67,8 @@ public class Room implements Initializable {
                     e.printStackTrace();
                 }
             }
+
+            city.setNextRoomAvailable();
         } else {
             System.out.println("ROOM - YOU NEED MORE MONEY"); //TODO UPGRADE
         }
@@ -81,5 +82,9 @@ public class Room implements Initializable {
 
     int getFloor() {
         return roomModel.getFloor();
+    }
+
+    void setAvailable() {
+        buyButton.setVisible(true);
     }
 }

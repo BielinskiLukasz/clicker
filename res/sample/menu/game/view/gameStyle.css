@@ -1,3 +1,7 @@
+TabPane {
+    -fx-tab-min-width: 144;
+}
+
 .world {
     -fx-font: 15px Tahoma;
     -fx-fill: rgb(20, 20, 20);
