@@ -12,7 +12,7 @@ public class CityModel {
         this.cityName = cityName;
         cityIncomePerSec = 0;
         this.cityLifeCostLvl = cityLifeCostLvl;
-        viewCosts = cityLifeCostLvl * 1000;
+        viewCosts = cityLifeCostLvl * 1024;
         visableRooms = 1;
     }
 

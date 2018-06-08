@@ -6,10 +6,8 @@ public class EmployeeModel {
     private int employeeHireCost;
 
     public EmployeeModel(int empNo, int floor, int cityLifeCostLvl) {
-        employeeIncomePerSec = 0;
-        employeeHireCost = (floor + empNo < 6 ? 2000 * cityLifeCostLvl : empNo * 500 * (1 + floor)) * cityLifeCostLvl;
-        employeeIncomePerSec = Math.round(((double)
-                (employeeHireCost / 100 / 4 * 3 + (int) (Math.random() * employeeHireCost / 200))) * 100) / 100;
+        employeeHireCost = (floor + empNo < 6) ? 1024 * cityLifeCostLvl : empNo * 512 * (1 + floor) * cityLifeCostLvl;
+        employeeIncomePerSec = employeeHireCost * 3 / 5 / 100 + (int) (Math.random() * employeeHireCost * 4 / 5 / 100);
     }
 
     public int getEmployeeHireCost() {

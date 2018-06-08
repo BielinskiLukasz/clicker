@@ -99,7 +99,7 @@ public class City implements Initializable {
     }
 
     void setNextRoomAvailable() {
-        if (roomList.size() >= cityModel.getVisableRooms()) {
+        if (roomList.size() > cityModel.getVisableRooms()) {
             roomList.get(roomList.size() - cityModel.getVisableRooms() - 1).setAvailable();
             cityModel.setVisableRooms(cityModel.getVisableRooms() + 1);
         }
