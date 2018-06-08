@@ -38,7 +38,6 @@ public class World implements Initializable {
             @Override
             protected Integer call() throws Exception {
                 int value = 0;
-//                String time;
                 while (true) {
                     value++;
                     worldModel.actualizeTime();

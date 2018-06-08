@@ -1,48 +1,48 @@
-/*Text {*/
-    /*-fx-font: 25px Tahoma;*/
-    /*-fx-fill: rgb(20, 20, 20);*/
-    /*-fx-stroke: black;*/
-    /*-fx-stroke-width: 2;*/
-/*}*/
+Text {
+    -fx-font: 25px Tahoma;
+    -fx-fill: rgb(20, 20, 20);
+    -fx-stroke: black;
+    -fx-stroke-width: 2;
+}
 
-/*Label {*/
-    /*-fx-font: 18px Tahoma;*/
-    /*-fx-text-fill: rgb(20, 20, 70);*/
-    /*-fx-background-color: rgb(256, 0, 200);*/
-    /*-fx-alignment: center;*/
-    /*-fx-border-width: 5;*/
-    /*-fx-border-color: RED;*/
-/*}*/
+Label {
+    -fx-font: 18px Tahoma;
+    -fx-text-fill: rgb(20, 20, 70);
+    -fx-background-color: rgb(256, 0, 200);
+    -fx-alignment: center;
+    -fx-border-width: 5;
+    -fx-border-color: RED;
+}
 
-/*GridPane {*/
-    /*-fx-background-color: #fff517;*/
-/*}*/
+GridPane {
+    -fx-background-color: #fff517;
+}
 
-/*Button {*/
-    /*-fx-background-color: #000000,*/
-    /*linear-gradient(#7ebcea, #2f4b8f),*/
-    /*linear-gradient(#426ab7, #263e75),*/
-    /*linear-gradient(#395cab, #223768);*/
-    /*-fx-background-insets: 0, 1, 2, 3;*/
-    /*-fx-background-radius: 8;*/
-    /*-fx-padding: 12 30 12 30;*/
-    /*-fx-text-fill: white;*/
-    /*-fx-font-size: 16px;*/
-/*}*/
+Button {
+    -fx-background-color: #000000,
+    linear-gradient(#7ebcea, #2f4b8f),
+    linear-gradient(#426ab7, #263e75),
+    linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0, 1, 2, 3;
+    -fx-background-radius: 8;
+    -fx-padding: 12 30 12 30;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
 
-/*Button:hover,*/
-/*.Numbers:hover {*/
-    /*-fx-background-color: #000000,*/
-    /*linear-gradient(#7ebcea, #18ec09),*/
-    /*linear-gradient(#426ab7, #42bd15),*/
-    /*linear-gradient(#395cab, #0e8a08);*/
-/*}*/
+Button:hover,
+.Numbers:hover {
+    -fx-background-color: #000000,
+    linear-gradient(#7ebcea, #18ec09),
+    linear-gradient(#426ab7, #42bd15),
+    linear-gradient(#395cab, #0e8a08);
+}
 
-/*Button:armed,*/
-/*.Numbers:armed {*/
-    /*-fx-background-color: #000000,*/
-    /*linear-gradient(#7ebcea, #2f4b8f),*/
-    /*linear-gradient(#426ab7, #263e75),*/
-    /*linear-gradient(#395cab, #223768);*/
-/*}*/
+Button:armed,
+.Numbers:armed {
+    -fx-background-color: #000000,
+    linear-gradient(#7ebcea, #2f4b8f),
+    linear-gradient(#426ab7, #263e75),
+    linear-gradient(#395cab, #223768);
+}
 
