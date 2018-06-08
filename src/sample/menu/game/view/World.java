@@ -4,6 +4,7 @@ import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import sample.menu.game.model.WorldModel;
@@ -16,6 +17,9 @@ import java.util.ResourceBundle;
 
 public class World implements Initializable {
 
+    public Label timer;
+    public Label founds;
+    public Label worldIncome;
     @FXML
     private TabPane citiesViewList;
 
@@ -51,8 +55,8 @@ public class World implements Initializable {
         };
 
         for (City city : cityList) {
-            city.founds.textProperty().bind(timeMeasurement.titleProperty());
-            city.timer.textProperty().bind(timeMeasurement.messageProperty());
+//            city.founds.textProperty().bind(timeMeasurement.titleProperty());
+//            city.timer.textProperty().bind(timeMeasurement.messageProperty());
         }
 
         Thread thread = new Thread(timeMeasurement);

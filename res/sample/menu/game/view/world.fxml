@@ -1,17 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.*?>
 <?import java.net.URL?>
-<TabPane
-        prefHeight="700.0" prefWidth="820.0"
+<GridPane
         xmlns:fx="http://javafx.com/fxml/1"
-        xmlns="http://javafx.com/javafx/8.0.141"
+        xmlns="http://javafx.com/javafx/8.0.121"
+        prefHeight="800.0" prefWidth="820.0"
         fx:controller="sample.menu.game.view.World"
-        fx:id="citiesViewList"
         styleClass="world">
+
+    <Label
+            fx:id="timer"
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="0"
+            alignment="CENTER"
+            prefHeight="150.0" prefWidth="280.0"
+            text="day /time day/ - /hours/:/mins/:/secs/"/>
+
+    <Label
+            fx:id="founds"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="0"
+            alignment="CENTER"
+            prefHeight="150.0" prefWidth="270.0"
+            text="Founds: /income/ $/s"/>
+
+    <Label
+            fx:id="worldIncome"
+            GridPane.columnIndex="2"
+            GridPane.rowIndex="0"
+            alignment="CENTER"
+            prefHeight="150.0" prefWidth="270.0"
+            text="World income: /income/ $/s"/>
+
+    <TabPane
+            GridPane.columnIndex="0"
+            GridPane.columnSpan="3"
+            GridPane.rowIndex="1"
+            fx:id="citiesViewList"
+            styleClass="tab">
+    </TabPane>
 
     <stylesheets>
         <URL value="@gameStyle.css"/>
     </stylesheets>
 
-</TabPane>
+</GridPane>
+

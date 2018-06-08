@@ -1,8 +1,17 @@
+.tab-pane *.tab-header-background {
+    -fx-background-color: LIGHTGREEN;
+}
+
 TabPane {
     -fx-tab-min-width: 144;
 }
 
 .world {
+    -fx-font: 20px Tahoma;
+    -fx-background-color: LIGHTGREEN;
+}
+
+.tab {
     -fx-font: 15px Tahoma;
     -fx-fill: rgb(20, 20, 20);
     -fx-stroke: black;
@@ -28,10 +37,6 @@ TabPane {
 
 .employee {
     -fx-font: 12px Tahoma;
-}
-
-GridPane Label {
-    -fx-padding: 10;
 }
 
 VBox {
