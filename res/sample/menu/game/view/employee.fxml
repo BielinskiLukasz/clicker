@@ -36,6 +36,7 @@
             GridPane.columnIndex="0"
             GridPane.rowIndex="0"
             textAlignment="CENTER"
-            text="Employee"/>
+            text="Employee"
+            styleClass="employeeButton"/>
 
 </GridPane>

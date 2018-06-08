@@ -32,6 +32,8 @@ public class World implements Initializable {
         worldModel = new WorldModel(10000);
         cityList = new ArrayList<>();
 
+        worldIncome.setText("World income:\t" + worldModel.getWorldIncomePerSec() + " $/s");
+
         addCity("Chernobyl", 1);
         addCity("Delhi", 2);
         addCity("Warsaw", 4);
@@ -49,15 +51,13 @@ public class World implements Initializable {
                     updateTitle("Founds:\t" + worldModel.getFounds() + " $");
                     updateMessage("day " + showTime(value));
                     Thread.sleep(1000); //one second
-                }
+                } //TODO ADD LOOP END
 //                return value;
             }
         };
 
-        for (City city : cityList) {
-//            city.founds.textProperty().bind(timeMeasurement.titleProperty());
-//            city.timer.textProperty().bind(timeMeasurement.messageProperty());
-        }
+        founds.textProperty().bind(timeMeasurement.titleProperty());
+        timer.textProperty().bind(timeMeasurement.messageProperty());
 
         Thread thread = new Thread(timeMeasurement);
         thread.setDaemon(true);
@@ -96,10 +96,6 @@ public class World implements Initializable {
         }
     }
 
-    double getWorldIncomePerSec() {
-        return worldModel.getWorldIncomePerSec();
-    }
-
     double outFounds() {
         return worldModel.getFounds();
     }
@@ -110,8 +106,6 @@ public class World implements Initializable {
 
     void actualizeIncome(double employeeIncomePerSec) {
         worldModel.actualizeIncome(employeeIncomePerSec);
-        for (City city : cityList) {
-            city.actualizeWorldIncomeView();
-        }
+        worldIncome.setText("World income:\t" + worldModel.getWorldIncomePerSec() + " $/s");
     }
 }

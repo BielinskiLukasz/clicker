@@ -31,12 +31,12 @@ TabPane {
     -fx-font: 18px Tahoma;
 }
 
-.room Button {
-    /*-fx-background-color: LIGHTGREEN;*/
-}
-
 .employee {
     -fx-font: 12px Tahoma;
+}
+
+.employeeButton {
+    -fx-background-radius: 50;
 }
 
 VBox {

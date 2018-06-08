@@ -19,12 +19,6 @@ import java.util.ResourceBundle;
 public class City implements Initializable {
 
     @FXML
-    private Label worldIncome;
-    @FXML
-    Label timer;
-    @FXML
-    Label founds;
-    @FXML
     private Label cityIncome;
     @FXML
     private GridPane head;
@@ -51,7 +45,6 @@ public class City implements Initializable {
         head.setVisible(false);
 
         cityIncome.setText("City income:\t" + cityModel.getCityIncomePerSec() + " $/s");
-        worldIncome.setText("World income:\t" + world.getWorldIncomePerSec() + " $/s");
     }
 
     @FXML
@@ -61,7 +54,6 @@ public class City implements Initializable {
 
             visitButton.setVisible(false);
             head.setVisible(true);
-            worldIncome.setText("World income:\t" + world.getWorldIncomePerSec() + " $/s");
 
             for (int i = 0; i < 5; i++) {
                 try {
@@ -92,10 +84,6 @@ public class City implements Initializable {
 
     int getCityLifeCostLvl() {
         return cityModel.getCityLifeCostLvl();
-    }
-
-    void actualizeWorldIncomeView() {
-        worldIncome.setText("World income:\t" + world.getWorldIncomePerSec() + " $/s");
     }
 
     void setNextRoomAvailable() {
