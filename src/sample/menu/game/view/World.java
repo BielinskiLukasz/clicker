@@ -29,7 +29,7 @@ public class World implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        worldModel = new WorldModel(10000);
+        worldModel = new WorldModel(10240);
         cityList = new ArrayList<>();
 
         worldIncome.setText("World income:\t" + worldModel.getWorldIncomePerSec() + " $/s");
@@ -77,7 +77,8 @@ public class World implements Initializable {
                 ? (value % (24 * 60 * 60)) % (60 * 60) % 60 : "0" + (value % (24 * 60 * 60)) % (60 * 60) % 60);
     }
 
-    private void addCity(String cityName, int cityLifeCostLvl) {
+    private void
+    addCity(String cityName, int cityLifeCostLvl) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("city.fxml"));
             City city = new City(cityName, cityLifeCostLvl, this);

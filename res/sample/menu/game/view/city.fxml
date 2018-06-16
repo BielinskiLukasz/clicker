@@ -29,7 +29,7 @@
                 GridPane.rowIndex="0"
                 alignment="CENTER"
                 prefHeight="50.0" prefWidth="410.0"
-                text="EMPTY"/>
+                text="  "/>
 
     </GridPane>
 

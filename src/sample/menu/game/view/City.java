@@ -58,7 +58,7 @@ public class City implements Initializable {
             for (int i = 0; i < 5; i++) {
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("room.fxml"));
-                    Room room = new Room(world, this, 5 - i, cityModel.getCityLifeCostLvl());
+                    Room room = new Room(world, this, 4 - i, cityModel.getCityLifeCostLvl());
                     loader.setController(room);
                     Pane pane = loader.load();
 
