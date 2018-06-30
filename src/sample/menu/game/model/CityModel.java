@@ -6,14 +6,14 @@ public class CityModel {
     private int cityLifeCostLvl;
     private double cityIncomePerSec;
     private int viewCosts;
-    private int visableRooms;
+    private int visibleRooms;
 
     public CityModel(String cityName, int cityLifeCostLvl) {
         this.cityName = cityName;
         cityIncomePerSec = 0;
         this.cityLifeCostLvl = cityLifeCostLvl;
         viewCosts = cityLifeCostLvl * 1024;
-        visableRooms = 1;
+        visibleRooms = 1;
     }
 
     public int getViewCosts() {
@@ -28,12 +28,12 @@ public class CityModel {
         return cityIncomePerSec;
     }
 
-    public int getVisableRooms() {
-        return visableRooms;
+    public int getVisibleRooms() {
+        return visibleRooms;
     }
 
-    public void setVisableRooms(int visableRooms) {
-        this.visableRooms = visableRooms;
+    public void setVisibleRooms(int visibleRooms) {
+        this.visibleRooms = visibleRooms;
     }
 
     public void actualizeIncome(double employeeIncomePerSec) {
