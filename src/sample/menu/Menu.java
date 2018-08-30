@@ -19,20 +19,31 @@ public class Menu {
     @FXML
     public void startGame(ActionEvent actionEvent) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("game/view/world.fxml"));
+            Parent root = setRoot("game/view/world.fxml");
 
             Stage stage = new Stage();
             Scene scene = new Scene(root, 820, 700);
 
-            stage.setResizable(false);
+            initStage(stage, scene);
 
-            stage.setTitle("GAME");
-            stage.setScene(scene);
-            stage.show();
-
-            ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+            hideMenuAfterGameStart(actionEvent);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private Parent setRoot(String url) throws IOException {
+        return FXMLLoader.load(getClass().getResource(url));
+    }
+
+    private void initStage(Stage stage, Scene scene) {
+        stage.setResizable(false);
+        stage.setTitle("GAME");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    private void hideMenuAfterGameStart(ActionEvent actionEvent) {
+        ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
     }
 }

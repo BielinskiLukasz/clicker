@@ -35,7 +35,7 @@ public class Employee implements Initializable {
 
     @FXML
     public void hireEmployee() {
-        if (world.outFounds() >= employeeModel.getEmployeeHireCost()) {
+        if (world.getFounds() >= employeeModel.getEmployeeHireCost()) {
             world.charge(employeeModel.getEmployeeHireCost());
             hireButton.setVisible(false);
 
@@ -50,6 +50,6 @@ public class Employee implements Initializable {
 
     @FXML
     public void showEmployeeInfo() {
-        System.out.println("I'm working!!!");   //TODO only tests :)
+        System.out.println("I'm working!!!");   //TODO UPGRADE
     }
 }

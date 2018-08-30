@@ -49,7 +49,7 @@ public class City implements Initializable {
 
     @FXML
     public void visitCity() {
-        if (world.outFounds() >= cityModel.getViewCosts()) {
+        if (world.getFounds() >= cityModel.getViewCosts()) {
             world.charge(cityModel.getViewCosts());
 
             visitButton.setVisible(false);

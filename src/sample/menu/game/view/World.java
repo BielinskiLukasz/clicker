@@ -27,6 +27,10 @@ public class World implements Initializable {
     private WorldModel worldModel;
     private List<City> cityList;
 
+    private static int SECONDS_IN_DAY = 24 * 60 * 60;
+    private static int SECONDS_IN_HOUR = 24 * 60 * 60;
+    private static int SECONDS_IN_MINUTE = 24 * 60 * 60;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         worldModel = new WorldModel(10240);
@@ -34,51 +38,26 @@ public class World implements Initializable {
 
         worldIncome.setText("World income:\t" + worldModel.getWorldIncomePerSec() + " $/s");
 
+        addCities();
+
+        timeMeasurement = createTimer();
+
+        setBinds();
+
+        Thread thread = new Thread(timeMeasurement);
+        //thread.setDaemon(true);
+        thread.start();
+    }
+
+    private void addCities() {
         addCity("Chernobyl", 1);
         addCity("Delhi", 2);
         addCity("Warsaw", 4);
         addCity("London", 8);
         addCity("New York", 16);
-
-        timeMeasurement = new Task<Integer>() {
-            @Override
-            protected Integer call() throws Exception {
-                int value = 0;
-                while (true) {
-                    value++;
-                    worldModel.actualizeTime();
-                    worldModel.actualizeFounds();
-                    updateTitle("Founds:\t" + worldModel.getFounds() + " $");
-                    updateMessage("day " + showTime(value));
-                    Thread.sleep(1000); //one second
-                } //TODO ADD LOOP END
-//                return value;
-            }
-        };
-
-        founds.textProperty().bind(timeMeasurement.titleProperty());
-        timer.textProperty().bind(timeMeasurement.messageProperty());
-
-        Thread thread = new Thread(timeMeasurement);
-        thread.setDaemon(true);
-        thread.start();
     }
 
-    private String showTime(int value) {
-        return (value / (24 * 60 * 60) > 0 ? value / (24 * 60 * 60) : 0)
-                + " - "
-                + ((value % (24 * 60 * 60)) / (60 * 60) >= 10
-                ? (value % (24 * 60 * 60)) / (60 * 60) : "0" + (value % (24 * 60 * 60)) / (60 * 60))
-                + ":"
-                + ((value % (24 * 60 * 60)) % (60 * 60) / 60 >= 10
-                ? (value % (24 * 60 * 60)) % (60 * 60) / 60 : "0" + (value % (24 * 60 * 60)) % (60 * 60) / 60)
-                + ":"
-                + ((value % (24 * 60 * 60)) % (60 * 60) % 60 >= 10
-                ? (value % (24 * 60 * 60)) % (60 * 60) % 60 : "0" + (value % (24 * 60 * 60)) % (60 * 60) % 60);
-    }
-
-    private void
-    addCity(String cityName, int cityLifeCostLvl) {
+    private void addCity(String cityName, int cityLifeCostLvl) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("city.fxml"));
             City city = new City(cityName, cityLifeCostLvl, this);
@@ -97,7 +76,46 @@ public class World implements Initializable {
         }
     }
 
-    double outFounds() {
+    private Task<Integer> createTimer() {
+        return new Task<Integer>() {
+            @Override
+            protected Integer call() throws Exception {
+                int value = 0;
+                while (value < SECONDS_IN_DAY) {
+                    value++;
+                    worldModel.actualizeTime();
+                    worldModel.actualizeFounds();
+                    updateTitle("Founds:\t" + worldModel.getFounds() + " $");
+                    updateMessage("day " + showTime(value));
+                    Thread.sleep(1000); //one second
+                }
+                return value;
+            }
+        };
+    }
+
+    private void setBinds() {
+        founds.textProperty().bind(timeMeasurement.titleProperty());
+        timer.textProperty().bind(timeMeasurement.messageProperty());
+    }
+
+    private String showTime(int value) {
+        return (value / (SECONDS_IN_DAY) > 0 ? value / (SECONDS_IN_DAY) : 0) +
+                " - " +
+                ((value % (SECONDS_IN_DAY)) / (SECONDS_IN_HOUR) >= 10 ?
+                        (value % (SECONDS_IN_DAY)) / (SECONDS_IN_HOUR) :
+                        "0" + (value % (SECONDS_IN_DAY)) / (SECONDS_IN_HOUR)) +
+                ":" +
+                ((value % (SECONDS_IN_DAY)) % (SECONDS_IN_HOUR) / SECONDS_IN_MINUTE >= 10 ?
+                        (value % (SECONDS_IN_DAY)) % (SECONDS_IN_HOUR) / SECONDS_IN_MINUTE :
+                        "0" + (value % (SECONDS_IN_DAY)) % (SECONDS_IN_HOUR) / SECONDS_IN_MINUTE) +
+                ":" +
+                ((value % (SECONDS_IN_DAY)) % (SECONDS_IN_HOUR) % SECONDS_IN_MINUTE >= 10 ?
+                        (value % (SECONDS_IN_DAY)) % (SECONDS_IN_HOUR) % SECONDS_IN_MINUTE :
+                        "0" + (value % (SECONDS_IN_DAY)) % (SECONDS_IN_HOUR) % SECONDS_IN_MINUTE);
+    }
+
+    double getFounds() {
         return worldModel.getFounds();
     }
 

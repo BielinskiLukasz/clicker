@@ -47,7 +47,7 @@ public class Room implements Initializable {
 
     @FXML
     public void buyRoom() {
-        if (world.outFounds() >= roomModel.getRoomBuyCost()) {
+        if (world.getFounds() >= roomModel.getRoomBuyCost()) {
             world.charge(roomModel.getRoomBuyCost());
 
             buyButton.setVisible(false);

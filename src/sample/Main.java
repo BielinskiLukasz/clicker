@@ -17,7 +17,6 @@ public class Main extends Application {
         Scene scene = new Scene(root, 450, 275);
 
         primaryStage.setResizable(false);
-
         primaryStage.setTitle("GAME MENU");
         primaryStage.setScene(scene);
         primaryStage.show();
