@@ -12,6 +12,10 @@ public class RoomModel {
         this.roomBuyCost = 1024 * (1 + 2 * floor) * (2 + cityLifeCostLvl * cityLifeCostLvl / 2);
     }
 
+    public void actualizeIncome(double employeeIncomePerSec) {
+        roomIncomePerSec += employeeIncomePerSec;
+    }
+
     public int getRoomBuyCost() {
         return roomBuyCost;
     }
@@ -22,9 +26,5 @@ public class RoomModel {
 
     public int getFloor() {
         return floor;
-    }
-
-    public void actualizeIncome(double employeeIncomePerSec) {
-        roomIncomePerSec += employeeIncomePerSec;
     }
 }

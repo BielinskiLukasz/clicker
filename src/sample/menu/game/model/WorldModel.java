@@ -12,18 +12,6 @@ public class WorldModel {
         timeSec = 0;
     }
 
-    public double getFounds() {
-        return founds;
-    }
-
-    public double getWorldIncomePerSec() {
-        return worldIncomePerSec;
-    }
-
-    public void setFounds(double founds) {
-        this.founds = founds;
-    }
-
     public void actualizeTime() {
         timeSec++;
     }
@@ -34,5 +22,17 @@ public class WorldModel {
 
     public void actualizeIncome(double employeeIncomePerSec) {
         worldIncomePerSec += employeeIncomePerSec;
+    }
+
+    public double getFounds() {
+        return founds;
+    }
+
+    public void setFounds(double founds) {
+        this.founds = founds;
+    }
+
+    public double getWorldIncomePerSec() {
+        return worldIncomePerSec;
     }
 }

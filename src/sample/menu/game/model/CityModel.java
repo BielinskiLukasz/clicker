@@ -16,6 +16,10 @@ public class CityModel {
         visibleRooms = 1;
     }
 
+    public void actualizeIncome(double employeeIncomePerSec) {
+        cityIncomePerSec += employeeIncomePerSec;
+    }
+
     public int getViewCosts() {
         return viewCosts;
     }
@@ -34,9 +38,5 @@ public class CityModel {
 
     public void setVisibleRooms(int visibleRooms) {
         this.visibleRooms = visibleRooms;
-    }
-
-    public void actualizeIncome(double employeeIncomePerSec) {
-        cityIncomePerSec += employeeIncomePerSec;
     }
 }

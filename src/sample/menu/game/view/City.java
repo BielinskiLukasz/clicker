@@ -39,12 +39,15 @@ public class City implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        visitButton.setVisible(true);
         visitButton.setText("Cost of the visit: " + cityModel.getViewCosts() + " $");
-
-        head.setVisible(false);
-
         cityIncome.setText("City income:\t" + cityModel.getCityIncomePerSec() + " $/s");
+
+        setCitVisible(false);
+    }
+
+    private void setCitVisible(boolean visible) {
+        visitButton.setVisible(!visible);
+        head.setVisible(visible);
     }
 
     @FXML
@@ -52,28 +55,39 @@ public class City implements Initializable {
         if (world.getFounds() >= cityModel.getViewCosts()) {
             world.charge(cityModel.getViewCosts());
 
-            visitButton.setVisible(false);
-            head.setVisible(true);
+            setCitVisible(true);
 
-            for (int i = 0; i < 5; i++) {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("room.fxml"));
-                    Room room = new Room(world, this, 4 - i, cityModel.getCityLifeCostLvl());
-                    loader.setController(room);
-                    Pane pane = loader.load();
-
-                    roomsViewList.getChildren().add(pane);
-
-                    roomList.add(room);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+            addRooms();
 
             roomList.get(roomList.size() - 1).setAvailable();
         } else {
-            System.out.println("CITY - YOU NEED MORE MONEY"); //TODO UPGRADE
+            showMessage("CITY - YOU NEED MORE MONEY"); //TODO UPGRADE
         }
+    }
+
+    private void addRooms() {
+        for (int i = 0; i < 5; i++) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("room.fxml"));
+                Room room = new Room(world, this, 4 - i, cityModel.getCityLifeCostLvl());
+                loader.setController(room);
+                Pane pane = loader.load();
+
+                roomsViewList.getChildren().add(pane);
+
+                roomList.add(room);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void showMessage(String message) {
+        System.out.println(message);
+    }
+
+    int getCityLifeCostLvl() {
+        return cityModel.getCityLifeCostLvl();
     }
 
     void actualizeIncome(double employeeIncomePerSec) {
@@ -82,11 +96,7 @@ public class City implements Initializable {
         world.actualizeIncome(employeeIncomePerSec);
     }
 
-    int getCityLifeCostLvl() {
-        return cityModel.getCityLifeCostLvl();
-    }
-
-    void setNextRoomAvailable() {
+    void shareNextRoom() {
         if (roomList.size() > cityModel.getVisibleRooms()) {
             roomList.get(roomList.size() - cityModel.getVisibleRooms() - 1).setAvailable();
             cityModel.setVisibleRooms(cityModel.getVisibleRooms() + 1);

@@ -38,46 +38,47 @@ public class Room implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        buyButton.setVisible(false);
         buyButton.setText("Cost of purchase: " + roomModel.getRoomBuyCost() + " $");
-
-        roomIncome.setVisible(false);
         roomIncome.setText("" + roomModel.getRoomIncomePerSec() + " $/s");
+        setRoomVisible(false);
+    }
+
+    private void setRoomVisible(boolean b) {
+        buyButton.setVisible(false);
+        roomIncome.setVisible(b);
     }
 
     @FXML
     public void buyRoom() {
         if (world.getFounds() >= roomModel.getRoomBuyCost()) {
             world.charge(roomModel.getRoomBuyCost());
-
-            buyButton.setVisible(false);
-            roomIncome.setVisible(true);
-
-            for (int i = 0; i < 6; i++) {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("employee.fxml"));
-                    Employee employee = new Employee(world, this, i, city.getCityLifeCostLvl());
-                    loader.setController(employee);
-                    Pane pane = loader.load();
-
-                    employeesViewList.getChildren().add(pane);
-
-                    employeeList.add(employee);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            city.setNextRoomAvailable();
+            setRoomVisible(true);
+            addEmployeesToRoom();
+            city.shareNextRoom();
         } else {
-            System.out.println("ROOM - YOU NEED MORE MONEY"); //TODO UPGRADE
+            showMessage("ROOM - YOU NEED MORE MONEY"); //TODO UPGRADE
         }
     }
 
-    void actualizeIncome(double employeeIncomePerSec) {
-        roomModel.actualizeIncome(employeeIncomePerSec);
-        roomIncome.setText("" + roomModel.getRoomIncomePerSec() + " $/s");
-        city.actualizeIncome(employeeIncomePerSec);
+    private void addEmployeesToRoom() {
+        for (int i = 0; i < 6; i++) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("employee.fxml"));
+                Employee employee = new Employee(world, this, i, city.getCityLifeCostLvl());
+                loader.setController(employee);
+                Pane pane = loader.load();
+
+                employeesViewList.getChildren().add(pane);
+
+                employeeList.add(employee);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void showMessage(String message) {
+        System.out.println(message);
     }
 
     int getFloor() {
@@ -86,5 +87,11 @@ public class Room implements Initializable {
 
     void setAvailable() {
         buyButton.setVisible(true);
+    }
+
+    void actualizeIncome(double employeeIncomePerSec) {
+        roomModel.actualizeIncome(employeeIncomePerSec);
+        roomIncome.setText("" + roomModel.getRoomIncomePerSec() + " $/s");
+        city.actualizeIncome(employeeIncomePerSec);
     }
 }

@@ -42,7 +42,7 @@ public class World implements Initializable {
 
         timeMeasurement = createTimer();
 
-        setBinds();
+        createBinds();
 
         Thread thread = new Thread(timeMeasurement);
         //thread.setDaemon(true);
@@ -63,10 +63,7 @@ public class World implements Initializable {
             City city = new City(cityName, cityLifeCostLvl, this);
             loader.setController(city);
 
-            Tab tab = new Tab();
-            tab.setContent(loader.load());
-            tab.setText(cityName);
-            tab.setClosable(false);
+            Tab tab = createCityTab(cityName, loader);
 
             citiesViewList.getTabs().add(tab);
 
@@ -76,6 +73,14 @@ public class World implements Initializable {
         }
     }
 
+    private Tab createCityTab(String cityName, FXMLLoader loader) throws IOException {
+        Tab tab = new Tab();
+        tab.setContent(loader.load());
+        tab.setText(cityName);
+        tab.setClosable(false);
+        return tab;
+    }
+
     private Task<Integer> createTimer() {
         return new Task<Integer>() {
             @Override
@@ -83,36 +88,62 @@ public class World implements Initializable {
                 int value = 0;
                 while (value < SECONDS_IN_DAY) {
                     value++;
-                    worldModel.actualizeTime();
-                    worldModel.actualizeFounds();
-                    updateTitle("Founds:\t" + worldModel.getFounds() + " $");
-                    updateMessage("day " + showTime(value));
+                    updateData();
+                    updateBinds(value);
                     Thread.sleep(1000); //one second
                 }
                 return value;
             }
+
+            private void updateData() {
+                worldModel.actualizeTime();
+                worldModel.actualizeFounds();
+            }
+
+            private void updateBinds(int value) {
+                updateTitle("Founds:\t" + worldModel.getFounds() + " $");
+                updateMessage("day " + showTime(value));
+            }
         };
     }
 
-    private void setBinds() {
-        founds.textProperty().bind(timeMeasurement.titleProperty());
-        timer.textProperty().bind(timeMeasurement.messageProperty());
+    private String showTime(int value) {
+        return (countDays(value) > 0 ? countDays(value) : 0) +
+                " - " +
+                (countHours(value) >= 10 ? countHours(value) : "0" + countHours(value)) +
+                ":" +
+                (countMinutes(value) >= 10 ? countMinutes(value) : "0" + countMinutes(value)) +
+                ":" +
+                (countMinuteModulo(value) >= 10 ? countMinuteModulo(value) : "0" + countMinuteModulo(value));
     }
 
-    private String showTime(int value) {
-        return (value / (SECONDS_IN_DAY) > 0 ? value / (SECONDS_IN_DAY) : 0) +
-                " - " +
-                ((value % (SECONDS_IN_DAY)) / (SECONDS_IN_HOUR) >= 10 ?
-                        (value % (SECONDS_IN_DAY)) / (SECONDS_IN_HOUR) :
-                        "0" + (value % (SECONDS_IN_DAY)) / (SECONDS_IN_HOUR)) +
-                ":" +
-                ((value % (SECONDS_IN_DAY)) % (SECONDS_IN_HOUR) / SECONDS_IN_MINUTE >= 10 ?
-                        (value % (SECONDS_IN_DAY)) % (SECONDS_IN_HOUR) / SECONDS_IN_MINUTE :
-                        "0" + (value % (SECONDS_IN_DAY)) % (SECONDS_IN_HOUR) / SECONDS_IN_MINUTE) +
-                ":" +
-                ((value % (SECONDS_IN_DAY)) % (SECONDS_IN_HOUR) % SECONDS_IN_MINUTE >= 10 ?
-                        (value % (SECONDS_IN_DAY)) % (SECONDS_IN_HOUR) % SECONDS_IN_MINUTE :
-                        "0" + (value % (SECONDS_IN_DAY)) % (SECONDS_IN_HOUR) % SECONDS_IN_MINUTE);
+    private int countDays(int value) {
+        return value / (SECONDS_IN_DAY);
+    }
+
+    private int countDayModulo(int value) {
+        return value % (SECONDS_IN_DAY);
+    }
+
+    private int countHours(int value) {
+        return countDayModulo(value) / (SECONDS_IN_HOUR);
+    }
+
+    private int countHourModulo(int value) {
+        return (countDayModulo(value)) % (SECONDS_IN_HOUR);
+    }
+
+    private int countMinutes(int value) {
+        return countHourModulo(value) / SECONDS_IN_MINUTE;
+    }
+
+    private int countMinuteModulo(int value) {
+        return countHourModulo(value) % SECONDS_IN_MINUTE;
+    }
+
+    private void createBinds() {
+        founds.textProperty().bind(timeMeasurement.titleProperty());
+        timer.textProperty().bind(timeMeasurement.messageProperty());
     }
 
     double getFounds() {

@@ -27,29 +27,35 @@ public class Employee implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        hireButton.setVisible(true);
         hireButton.setText("employment\ncost:\n" + employeeModel.getEmployeeHireCost() + " $");
 
-        employeeButton.setVisible(false);
+        setEmployeeHiredVisible(false);
+    }
+
+    private void setEmployeeHiredVisible(boolean hired) {
+        hireButton.setVisible(!hired);
+        employeeButton.setVisible(hired);
     }
 
     @FXML
     public void hireEmployee() {
         if (world.getFounds() >= employeeModel.getEmployeeHireCost()) {
             world.charge(employeeModel.getEmployeeHireCost());
-            hireButton.setVisible(false);
-
-            employeeButton.setVisible(true);
+            setEmployeeHiredVisible(true);
             employeeButton.setText("Employee\n+" + employeeModel.getEmployeeIncomePerSec());
 
             room.actualizeIncome(employeeModel.getEmployeeIncomePerSec());
         } else {
-            System.out.println("EMPLOYEE - YOU NEED MORE MONEY"); //TODO UPGRADE
+            showMessage("EMPLOYEE - YOU NEED MORE MONEY"); //TODO UPGRADE
         }
+    }
+
+    private void showMessage(String message) {
+        System.out.println(message);
     }
 
     @FXML
     public void showEmployeeInfo() {
-        System.out.println("I'm working!!!");   //TODO UPGRADE
+        showMessage("I'm working!!!");   //TODO UPGRADE
     }
 }
