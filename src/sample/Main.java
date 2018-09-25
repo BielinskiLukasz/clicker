@@ -8,6 +8,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * dany utwór powstał w wyniku realizowania procesu edukacyjnego w PJATK.
+ */
 public class Main extends Application {
 
     @Override
