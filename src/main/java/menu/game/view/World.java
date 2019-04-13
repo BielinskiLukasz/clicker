@@ -18,8 +18,8 @@ import java.util.ResourceBundle;
 public class World implements Initializable {
 
     private static int SECONDS_IN_DAY = 24 * 60 * 60;
-    private static int SECONDS_IN_HOUR = 24 * 60 * 60;
-    private static int SECONDS_IN_MINUTE = 24 * 60 * 60;
+    private static int SECONDS_IN_HOUR = 60 * 60;
+    private static int SECONDS_IN_MINUTE = 60;
     public Label timer;
     public Label founds;
     public Label worldIncome;
