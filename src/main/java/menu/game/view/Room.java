@@ -1,4 +1,4 @@
-package sample.menu.game.view;
+package menu.game.view;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import sample.menu.game.model.RoomModel;
+import menu.game.model.RoomModel;
 
 import java.io.IOException;
 import java.net.URL;

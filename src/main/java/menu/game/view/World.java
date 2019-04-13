@@ -1,4 +1,4 @@
-package sample.menu.game.view;
+package menu.game.view;
 
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -7,7 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
-import sample.menu.game.model.WorldModel;
+import menu.game.model.WorldModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,19 +17,17 @@ import java.util.ResourceBundle;
 
 public class World implements Initializable {
 
+    private static int SECONDS_IN_DAY = 24 * 60 * 60;
+    private static int SECONDS_IN_HOUR = 24 * 60 * 60;
+    private static int SECONDS_IN_MINUTE = 24 * 60 * 60;
     public Label timer;
     public Label founds;
     public Label worldIncome;
     @FXML
     private TabPane citiesViewList;
-
     private Task timeMeasurement;
     private WorldModel worldModel;
     private List<City> cityList;
-
-    private static int SECONDS_IN_DAY = 24 * 60 * 60;
-    private static int SECONDS_IN_HOUR = 24 * 60 * 60;
-    private static int SECONDS_IN_MINUTE = 24 * 60 * 60;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -1,4 +1,4 @@
-package sample.menu.game.model;
+package menu.game.model;
 
 public class CityModel {
 

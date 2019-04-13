@@ -1,4 +1,4 @@
-package sample.menu.game.view;
+package menu.game.view;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import sample.menu.game.model.CityModel;
+import menu.game.model.CityModel;
 
 import java.io.IOException;
 import java.net.URL;

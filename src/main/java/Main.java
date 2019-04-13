@@ -1,5 +1,3 @@
-package sample;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,9 +7,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * dany utwór powstał w wyniku realizowania procesu edukacyjnego w PJATK.
+ * Dany utwór powstał w wyniku realizowania procesu edukacyjnego w PJATK.
  */
 public class Main extends Application {
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -23,9 +25,5 @@ public class Main extends Application {
         primaryStage.setTitle("GAME MENU");
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

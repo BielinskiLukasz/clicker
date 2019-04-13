@@ -1,9 +1,9 @@
-package sample.menu.game.view;
+package menu.game.view;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import sample.menu.game.model.EmployeeModel;
+import menu.game.model.EmployeeModel;
 
 import java.net.URL;
 import java.util.ResourceBundle;
