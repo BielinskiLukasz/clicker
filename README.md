@@ -157,20 +157,14 @@ For JavaFX 11+:
 --module-path "PATH_TO_FX/lib" --add-modules javafx.controls,javafx.fxml
 ```
 
+Replace `PATH_TO_FX` with the path to your JavaFX SDK.
+
 6. Set **Main class** to:
 ```
 Main
 ```
 
 7. Click **Run**
-
-### Running from command line (JavaFX 11+)
-
-```
-java --module-path "PATH_TO_FX/lib" --add-modules javafx.controls,javafx.fxml -cp src/main/java Main
-```
-
-Replace `PATH_TO_FX` with the path to your JavaFX SDK.
 
 ---
 
