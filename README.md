@@ -54,19 +54,21 @@ The game is organized into four main layers:
 The project follows a lightweight **MVC** structure:
 
 ```
-src/main/java/menu
- ├── Menu.java                 # Main menu controller
+src/main/java
+ ├── Main.java                 # Application entry point
+ ├── menu
+ │     └── Menu.java           # Main menu controller
  └── game
-      ├── model
-      │    ├── WorldModel.java
-      │    ├── CityModel.java
-      │    ├── RoomModel.java
-      │    └── EmployeeModel.java
-      └── view
-           ├── World.java
-           ├── City.java
-           ├── Room.java
-           └── Employee.java
+       ├── model
+       │    ├── WorldModel.java
+       │    ├── CityModel.java
+       │    ├── RoomModel.java
+       │    └── EmployeeModel.java
+       └── view
+            ├── World.java
+            ├── City.java
+            ├── Room.java
+            └── Employee.java
 ```
 
 ### **Model**
@@ -102,6 +104,31 @@ src/main/resources/menu
 - **JavaFX**
 - **FXML**
 - **CSS**
+
+---
+
+## 🧪 Stability & Known Issues
+
+The game is **stable and fully playable**.  
+There are **no known critical bugs**.
+
+Since the project is finished, only minor cosmetic issues may remain.
+
+---
+
+## 🧰 Tested Environment
+
+The project was tested and confirmed working on:
+
+### ✔️ Java 8  
+- Works without issues  
+- Uses built‑in JavaFX (Java 8 includes JavaFX by default)
+
+### ✔️ Java 26 + JavaFX 26  
+- **OpenJDK 26.0.1**  
+- **JavaFX SDK 26.0.1**
+
+Both configurations run the game correctly.
 
 ---
 
@@ -154,9 +181,26 @@ Replace `PATH_TO_FX` with the path to your JavaFX SDK.
 
 ---
 
-## 🛠️ Planned Improvements
+## 📥 Prebuilt JAR
 
-Although the project is finished, here are ideas that could be implemented in the future:
+A prebuilt JAR **is not provided**.  
+The game must be run directly from an IDE or built manually.
+
+---
+
+## 🤝 Contributing
+
+Although the project is finished, contributions are still welcome:
+
+- bug fixes  
+- UI improvements  
+- new ideas or enhancements  
+
+Feel free to open a pull request or issue.
+
+---
+
+## 🛠️ Planned Improvements (Optional Ideas)
 
 - Save/load game progress  
 - Better balancing of income and upgrades  
