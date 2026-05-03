@@ -1,5 +1,7 @@
 # Clicker — JavaFX Idle Game  
+
 ![Status](https://img.shields.io/badge/status-finished-brightgreen)
+![Version](https://img.shields.io/badge/version-1.0-blue)
 
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 ![JavaFX](https://img.shields.io/badge/JavaFX-000000?style=for-the-badge)
