@@ -1,10 +1,10 @@
 # Clicker — JavaFX Idle Game  
 
 ![Status](https://img.shields.io/badge/status-finished-brightgreen)
-![Version](https://img.shields.io/badge/version-1.0-blue)
-
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![JavaFX](https://img.shields.io/badge/JavaFX-000000?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Java](https://img.shields.io/badge/Java-26.0.1-orange?logo=openjdk)
+![JavaFX](https://img.shields.io/badge/JavaFX-26.0.1-000000?logo=javafx)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
 A simple idle/clicker game built with **JavaFX** using an MVC‑style architecture.  
 The player expands a software company by unlocking cities, opening rooms, and hiring programmers who generate income over time.
